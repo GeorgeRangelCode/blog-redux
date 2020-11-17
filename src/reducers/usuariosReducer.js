@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  usuarios: [],
+  usuarios: [1, 2, 3],
 };
 
 export default (state = INITIAL_STATE, action) => {
