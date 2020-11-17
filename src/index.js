@@ -6,14 +6,16 @@ import App from "./components/App";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
+import reducers from "./reducers";
+
 const store = createStore(
-  {}, // Todos los reducer
+  reducers, // Todos los reducer
   {} // Estado Inicial
 );
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
