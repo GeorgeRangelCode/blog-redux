@@ -22,3 +22,17 @@ export const traerTodos = () => async (dispatch) => {
     });
   }
 };
+
+export const traerPorUsuario = (key) => async (dispatch, getState) => {
+  const { usuarios } = getState().usuariosReducer;
+  const usuarios_id = usuarios[key].id;
+
+  const respuesta = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts?userId=${usuarios_id}`
+  );
+
+  dispatch({
+    type: TRAER_TODOS,
+    payload: respuesta.data,
+  });
+};
